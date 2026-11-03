@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chargeback-tracker"
+version = "0.1.0"
+description = "Local-first Python CLI for small businesses to track payment disputes and chargebacks"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [{name = "Asdale Dynamics, LLC"}]
+keywords = ["chargeback", "dispute", "small-business", "cli", "json", "csv"]
+
+[project.scripts]
+chargeback-tracker = "chargeback_tracker.cli:main"
+
+[tool.setuptools]
+packages = ["chargeback_tracker"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
