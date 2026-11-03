@@ -15,7 +15,8 @@ Features:
   status based on a per-case response window (default 30 days); resolved cases
   are never flagged overdue
 - Status transition validation (e.g. open -> closed is not allowed directly)
-- Tests for status logic (`tests/test_status.py`, 12 tests, stdlib unittest only)
+- Tests for status logic plus storage and CSV export (19 tests, stdlib unittest
+  only)
 
 Made by Asdale Dynamics, LLC. MIT licensed.
 
@@ -47,11 +48,11 @@ chargeback-tracker --help
 ## Verification results
 
 - `python3 -m py_compile chargeback_tracker/*.py tests/*.py` — OK
-- `python3 -m unittest discover tests` — 12 tests, OK
+- `python3 -m unittest discover tests` — 19 tests, OK (12 status logic + 7
+  storage/export)
 - `pip install -e .` + `chargeback-tracker --help` — entry point works
-- End-to-end smoke test — add, list, show, status (overdue detection with a
-  custom reference date), update, close, export CSV, delete, and invalid
-  transition rejection all verified manually
+- End-to-end smoke test — add, list, status (overdue detection with custom
+  reference date), close, export CSV all verified manually
 
 ## Known gaps
 

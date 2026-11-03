@@ -5,7 +5,7 @@ from __future__ import annotations
 import argparse
 import sys
 import uuid
-from datetime import date
+from datetime import date, datetime
 from typing import Optional, Sequence
 
 from .export import export_cases
@@ -168,8 +168,6 @@ def _cmd_update(args: argparse.Namespace, storage: Storage) -> int:
         print("Nothing to update.")
         return 0
 
-    from datetime import datetime
-
     changes["updated_at"] = datetime.now().isoformat()
     if "status" in changes and changes["status"] in {WON, LOST, CLOSED} and not case.date_closed:
         changes["date_closed"] = date.today().isoformat()
@@ -192,8 +190,6 @@ def _cmd_close(args: argparse.Namespace, storage: Storage) -> int:
     if case.is_resolved():
         print(f"Case already resolved: {case.status}")
         return 1
-
-    from datetime import datetime
 
     case.status = CLOSED
     case.outcome = args.outcome
