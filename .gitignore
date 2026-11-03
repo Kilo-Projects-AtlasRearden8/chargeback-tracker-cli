@@ -1,4 +1,8 @@
-__pycache__/
 *.pyc
-chargebacks.json
+.env
+.env.*
 .venv/
+__pycache__/
+chargebacks.json
+dist/*.tmp
+node_modules/
